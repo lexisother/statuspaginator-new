@@ -11,6 +11,7 @@
     "prepare": "vp config"
   },
   "dependencies": {
+    "@nuxt/devtools": "^4.1.0",
     "@nuxthub/core": "0.10.12",
     "@nuxtjs/better-auth": "0.3.16",
     "auth": "1.7.19",
@@ -30,6 +31,11 @@
     "packageManager": {
       "name": "pnpm",
       "version": "12.18.0",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "26.13.0",
       "onFail": "download"
     }
   }
