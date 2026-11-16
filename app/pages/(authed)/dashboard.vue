@@ -1,5 +1,5 @@
 <template>
-  <h1>authed</h1>
+  <h1 class="text-red-500">authed</h1>
 </template>
 
 <script setup lang="ts">
