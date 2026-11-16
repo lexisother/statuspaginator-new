@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   // Nuxt config
-  modules: ["@nuxthub/core", "@nuxtjs/better-auth"],
+  modules: ["@nuxthub/core", "@nuxtjs/better-auth", "@pinia/nuxt"],
   css: ["~/assets/css/index.css"],
 
   vite: {
