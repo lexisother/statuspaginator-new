@@ -11,6 +11,13 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  auth: {
+    only: "guest",
+    redirectTo: "/dashboard",
+  },
+});
+
 const signup = useSignUp("email");
 const { loggedIn } = useUserSession();
 
@@ -31,7 +38,7 @@ const register = async () => {
     { name: "X", email: email.value, password: password.value },
     {
       onSuccess: () => {
-        console.log("wack ass");
+        debug("wack ass");
         navigateTo("/dashboard");
       },
     },

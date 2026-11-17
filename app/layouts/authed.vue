@@ -9,22 +9,30 @@ import { API_FETCH_TIMER } from "~/constants";
 
 const appData = useAppDataStore();
 
-let timer: ReturnType<typeof setInterval>;
+const { data, refresh } = await useFetch("/api/data");
+watchEffect(() => {
+  if (data.value) {
+    appData.lastApiTime = data.value.clientTime;
+  }
+});
+
+let clockTimer: ReturnType<typeof setInterval>;
+let fetchTimer: ReturnType<typeof setInterval>;
 
 onMounted(() => {
-  setInterval(async () => {
-    debug("fetching data");
-    const data = await (await fetch("/api/data")).json();
-    appData.lastApiTime = data.clientTime;
-  }, API_FETCH_TIMER);
+  appData.lastApiTime = Date.now();
 
-  timer = setInterval(() => {
-    debug("updating time");
+  clockTimer = setInterval(() => {
     appData.now = Date.now();
   }, 100);
+
+  fetchTimer = setInterval(() => {
+    refresh();
+  }, API_FETCH_TIMER);
 });
 
 onUnmounted(() => {
-  clearInterval(timer);
+  clearInterval(clockTimer);
+  clearInterval(fetchTimer);
 });
 </script>

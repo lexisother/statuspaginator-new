@@ -6,5 +6,5 @@
 const { loggedIn } = useUserSession();
 if (!loggedIn.value) navigateTo("/login");
 
-console.log("qhar");
+debug("qhar");
 </script>
