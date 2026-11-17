@@ -12,7 +12,7 @@
       colorBack="#000000"
       colorDrop="#000000"
       :dropOpacity="1"
-      :progress="clamp($appData.apiPct)"
+      :progress="clamp($appTime.apiPct)"
       :gapWidth="0"
       :dropWidth="0"
     />
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-const $appData = useAppDataStore();
+const $appTime = useAppTimeStore();
 
 withDefaults(
   defineProps<{

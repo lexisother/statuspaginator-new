@@ -7,12 +7,14 @@
 <script setup lang="ts">
 import { API_FETCH_TIMER } from "~/constants";
 
-const appData = useAppDataStore();
+const $appTime = useAppTimeStore();
+const $appData = useAppDataStore();
 
 const { data, refresh } = await useFetch("/api/data");
 watchEffect(() => {
   if (data.value) {
-    appData.lastApiTime = data.value.clientTime;
+    $appTime.lastApiTime = data.value.clientTime;
+    $appData.data = data.value.data;
   }
 });
 
@@ -20,10 +22,10 @@ let clockTimer: ReturnType<typeof setInterval>;
 let fetchTimer: ReturnType<typeof setInterval>;
 
 onMounted(() => {
-  appData.lastApiTime = Date.now();
+  $appTime.lastApiTime = Date.now();
 
   clockTimer = setInterval(() => {
-    appData.now = Date.now();
+    $appTime.now = Date.now();
   }, 100);
 
   fetchTimer = setInterval(() => {

@@ -1,5 +1,10 @@
-import { defineEventHandler } from "nuxt/server";
+export default defineEventHandler(async (ev) => {
+  await requireUserSession(ev);
 
-export default defineEventHandler(() => {
-  return { clientTime: Date.now() };
+  const sites = await db.select().from(schema.sites);
+
+  return {
+    clientTime: Date.now(),
+    data: { sites },
+  };
 });
