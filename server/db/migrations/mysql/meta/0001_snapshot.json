@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "8d59aa48-5c64-43d3-b168-13853f227e4b",
+  "id": "f2782ddd-b431-4d90-a281-f5c1b2b93c0f",
   "prevId": "46d392ef-6db4-4924-ac9b-17994850ad5a",
   "tables": {
     "account": {
@@ -237,13 +237,6 @@
           "notNull": false,
           "autoincrement": false
         },
-        "url": {
-          "name": "url",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
         "type": {
           "name": "type",
           "type": "enum('production','staging')",
@@ -251,6 +244,20 @@
           "notNull": false,
           "autoincrement": false,
           "default": "'production'"
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
         },
         "timezone": {
           "name": "timezone",
