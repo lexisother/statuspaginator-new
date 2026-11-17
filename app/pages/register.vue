@@ -11,12 +11,7 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  auth: {
-    only: "guest",
-    redirectTo: "/dashboard",
-  },
-});
+definePageMeta({ layout: false });
 
 const signup = useSignUp("email");
 const { loggedIn } = useUserSession();
