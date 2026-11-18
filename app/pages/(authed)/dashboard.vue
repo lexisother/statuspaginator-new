@@ -1,7 +1,7 @@
 <template>
   <h1 class="text-red-500">authed</h1>
 
-  <SiteGrid :sites="$appData.data.sites" />
+  <SiteGrid :sites="$appData.sites" />
 
   <button @click="logout">logout</button>
 </template>
@@ -12,8 +12,6 @@ definePageMeta({ layout: "authed" });
 const $appData = useAppDataStore();
 const { fetchSession } = useUserSession();
 const { execute: signOut } = useSignOut();
-
-debug("qhar");
 
 async function logout() {
   await signOut({

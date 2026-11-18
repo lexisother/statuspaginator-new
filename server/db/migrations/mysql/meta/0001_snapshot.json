@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "f2782ddd-b431-4d90-a281-f5c1b2b93c0f",
+  "id": "47b22fcb-1f09-4611-9ba7-1bbbec5535fc",
   "prevId": "46d392ef-6db4-4924-ac9b-17994850ad5a",
   "tables": {
     "account": {
@@ -241,7 +241,7 @@
           "name": "type",
           "type": "enum('production','staging')",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false,
           "default": "'production'"
         },

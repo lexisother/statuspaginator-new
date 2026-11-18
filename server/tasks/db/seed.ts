@@ -1,4 +1,4 @@
-import { Site } from "~~/shared/types/db";
+import { SiteInsert } from "~~/shared/types/db";
 
 export default defineTask({
   meta: {
@@ -7,11 +7,13 @@ export default defineTask({
   async run({ payload, context }) {
     console.log("Seeding database...");
 
-    const sites: Site[] = [];
-    for (let i = 0; i <= 5; i++) {
+    const sites: SiteInsert[] = [];
+    for (let i = 0; i < 8; i++) {
       sites.push({
+        name: `Site ${i + 1}`,
         url: "https://example.com",
         token: "xxx",
+        type: i > 3 ? "staging" : "production",
       });
     }
 

@@ -1,7 +1,9 @@
 import { sites } from "@nuxthub/db/schema";
 
-export type Site = typeof sites.$inferInsert;
-export type SiteData = typeof sites.$inferInsert.data;
+export type SiteInsert = typeof sites.$inferInsert;
+
+export type Site = typeof sites.$inferSelect;
+export type SiteData = typeof sites.$inferSelect.data;
 
 export interface SiteMeta {
   cpurl: string;

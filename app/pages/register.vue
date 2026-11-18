@@ -33,7 +33,6 @@ const register = async () => {
     { name: "X", email: email.value, password: password.value },
     {
       onSuccess: () => {
-        debug("wack ass");
         navigateTo("/dashboard");
       },
     },
