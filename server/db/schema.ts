@@ -5,7 +5,6 @@ export const sites = mysqlTable("sites", {
   id: serial().primaryKey().autoincrement(),
   name: text(),
   type: mysqlEnum(["production", "staging"]).default("production").notNull(),
-  token: text().notNull(),
   url: text().notNull(),
   timezone: text(),
   data: json().$type<{
@@ -13,4 +12,5 @@ export const sites = mysqlTable("sites", {
     php: string;
     craft: CraftInfo;
   }>(),
+  token: text().notNull(),
 });

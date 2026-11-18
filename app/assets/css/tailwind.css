@@ -1,4 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --grid-gap: 4px;
+
+  --color-dark-gray: #494949;
+  --color-inactive-gray: rgb(60, 60, 61);
 }

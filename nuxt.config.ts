@@ -4,11 +4,16 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   // Nuxt config
   devtools: { enabled: true },
-  modules: ["@nuxthub/core", "@nuxtjs/better-auth", "@pinia/nuxt"],
+  modules: ["@nuxthub/core", "@nuxtjs/better-auth", "@pinia/nuxt", "@nuxt/icon/module"],
   css: ["~/assets/css/index.css"],
   compatibilityDate: "2025-07-15",
 
   // Nitro config
+  nitro: {
+    experimental: {
+      tasks: true,
+    },
+  },
   routeRules: {
     "/": { auth: { only: "guest", redirectTo: "/dashboard" } },
     "/dashboard/**": { auth: { only: "user", redirectTo: "/" } },
